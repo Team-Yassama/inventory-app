@@ -8,7 +8,7 @@ import apiURL from '../api';
 
 export const App = () => {
 
-	const [items, setItems] = useState([{name: 'Kieran', id: 12345}]);
+	const [items, setItems] = useState([]);
 
 	async function fetchItems(){
 		try {
@@ -21,18 +21,21 @@ export const App = () => {
 		}
 	}
 
-	/*useEffect(() => {
+	useEffect(() => {
 		fetchItems();
-	}, []);*/
+	}, []);
 
 	return (
+		<>
 		<main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
 			<div style={{ marginBottom: '20px' }}>
 				<img src={logo} id="logo" alt="logo: dodgy 'r' us - with the tagline 'we do dodgy so you don't have to' and a smirking emoji" />
 			</div>
 			<button>do not click me</button>
 			{/* note to self: this might go on our next page <ItemsList items={items} /> */}
-			
 		</main>
+		<ItemsList items={items} />
+		
+		</>
 	)
 }
