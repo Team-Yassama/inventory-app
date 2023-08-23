@@ -1,5 +1,14 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  background-color: rgb(223, 223, 223);
+}
+
+body {
+  background-image: url('./background.png');
+}
+
+#logo {
+  border: 10px solid black;
+  border-radius: 1rem;
+  height: 300px;
 }
