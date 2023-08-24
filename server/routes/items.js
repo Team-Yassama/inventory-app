@@ -11,7 +11,18 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
-
+router.post("/", async (req, res, next) => {
+  const {title, price, category, image, description} = req.body
+  if(!title || !price || !category || !image || !description) {
+    res.send(400) 
+    return 
+  }
+   try {
+   const newItem = await Item.create( {title, price, category, image, description})
+  } catch(error) {
+    next(error);
+  }
+ })
 router.get("/:id", async (req, res, next) => {
   try {
     const singleItem = await Item.findByPk(req.params.id);
