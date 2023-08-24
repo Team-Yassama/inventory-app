@@ -13,7 +13,18 @@ body {
   height: 300px;
 }
 
-#itemslist{
+.itemslist{
   background-color: aliceblue;
   border: 10px solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.images {
+  height: 150px;
+}
+#parent-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 10px;
 }
