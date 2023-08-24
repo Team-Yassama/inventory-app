@@ -9,6 +9,7 @@ import apiURL from '../api';
 export const App = () => {
 
 	const [items, setItems] = useState([]);
+	const [activeItem, setActiveItem] = useState(null);
 
 	async function fetchItems(){
 		try {
@@ -21,9 +22,37 @@ export const App = () => {
 		}
 	}
 
-	useEffect(() => {
-		fetchItems();
-	}, []);
+	async function fetchSingleItem(id){
+		try {
+			const response = await fetch(`${apiURL}/items/${id}`);
+			const itemData = await response.json();
+			
+			setActiveItem(itemData);
+		} catch (err) {
+			console.log("Oh no an error! ", err)
+		}
+	}
+
+	if(activeItem) {
+		return (
+		<>
+		<button onClick={() => setActiveItem(null)}>GO BACK TO ITEMS YOU SILLY SAUSAGE</button>
+		<h1>{activeItem.title}</h1>
+		<p className='description'>{activeItem.description}</p>
+		<p className='price'>Dodgy Price 4 U: {activeItem.price}</p>
+		<img className='images' src={activeItem.image} alt={activeItem.title}/>
+	</>
+	)}
+
+	if(items.length > 0){
+		return (
+			<>
+			<button onClick={() => setItems([])}>GO HOME LADIES</button>
+			<ItemsList items={items} fetchSingleItem={fetchSingleItem} />
+	
+			</>
+		)
+	}
 
 	return (
 		<>
@@ -31,11 +60,9 @@ export const App = () => {
 			<div style={{ marginBottom: '20px' }}>
 				<img src={logo} id="logo" alt="logo: dodgy 'r' us - with the tagline 'we do dodgy so you don't have to' and a smirking emoji" />
 			</div>
-			<button>do not click me</button>
-			{/* note to self: this might go on our next page <ItemsList items={items} /> */}
+			<button onClick={fetchItems}>do not click me</button>
 		</main>
-		<ItemsList items={items} />
-		
+
 		</>
 	)
 }
