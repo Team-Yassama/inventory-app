@@ -10,7 +10,7 @@ const seed = async () => {
         await sequelize.sync({ force: true });
     
         // insert data
-        await Promise.all(items.map(sauce => Item.create(items)));
+        await Promise.all(items.map(items => Item.create(items)));
 
         console.log("db populated!");
     } catch (error) {
