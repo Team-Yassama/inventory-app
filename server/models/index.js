@@ -5,7 +5,6 @@ const Item = sequelize.define("items", {
   title: Sequelize.STRING,
   description: Sequelize.TEXT,
   price: Sequelize.FLOAT,
-  category: Sequelize.STRING,
   image: Sequelize.STRING,
 });
 
