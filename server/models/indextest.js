@@ -14,14 +14,12 @@ DESCRIBE("Item model", () => {
             title: "Test Item",
             description: "Test description",
             price: 39.99,
-            category: "Electronics",
             image: "test.jpg"
         });
         expect(item.id).toBe(1);
         expect(item.title).toBe('Test Item');
         expect(item.description).toBe('Test description');
         expect(item.price).toBe(9.99);
-        expect(item.category).toBe('Electronics');
         expect(item.image).toBe('test.jpg');
            
     })

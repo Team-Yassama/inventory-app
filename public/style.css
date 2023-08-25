@@ -28,3 +28,22 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 10px;
 }
+
+#singleitem {
+  background-color: cornsilk;
+  border: 20px ridge lime;
+}
+
+#purpleform {
+  background-color: ivory;
+  border: 30px double crimson;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#sponsor {
+  border: 10px solid violet;
+  border-radius: 1rem;
+  color: darkslateblue;
+  background-color: wheat;
+}

@@ -12,13 +12,13 @@ router.get("/", async (req, res, next) => {
   }
 });
 router.post("/", async (req, res, next) => {
-  const {title, price, category, image, description} = req.body
-  if(!title || !price || !category || !image || !description) {
+  const {title, price, image, description} = req.body
+  if(!title || !price || !image || !description) {
     res.send(400) 
     return 
   }
    try {
-   const newItem = await Item.create( {title, price, category, image, description})
+   const newItem = await Item.create( {title, price, image, description})
   } catch(error) {
     next(error);
   }

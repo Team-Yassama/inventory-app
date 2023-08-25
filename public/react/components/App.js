@@ -37,10 +37,12 @@ export const App = () => {
 		return (
 		<>
 		<button onClick={() => setActiveItem(null)}>GO BACK TO ITEMS YOU SILLY SAUSAGE</button>
-		<h1>{activeItem.title}</h1>
-		<p className='description'>{activeItem.description}</p>
-		<p className='price'>Dodgy Price 4 U: {activeItem.price}</p>
+		<section id="singleitem">
+			<h1>{activeItem.title}</h1>
+			<p className='description'>{activeItem.description}</p>
+			<p className='price'><strong>Dodgy Price 4 U:</strong> {activeItem.price}</p>
 		<img className='images' src={activeItem.image} alt={activeItem.title}/>
+		</section>
 	</>
 	)}
 
@@ -48,7 +50,7 @@ export const App = () => {
 		return (
 			<>
 			<button onClick={() => setItems([])}>GO HOME LADIES</button>
-			<ItemsList items={items} fetchSingleItem={fetchSingleItem} />
+			<ItemsList items={items} fetchSingleItem={fetchSingleItem} setItems={setItems} />
 	
 			</>
 		)
@@ -62,6 +64,10 @@ export const App = () => {
 			</div>
 			<button onClick={fetchItems}>do not click me</button>
 		</main>
+
+		<section id="sponsor">
+			<h2>PROUDLY SPONSORED BY TOYOTA YARRIS</h2>
+		</section>
 
 		</>
 	)
